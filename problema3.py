@@ -36,7 +36,6 @@ def main():
 
     trinario_tree = construct_trinario_tree(numbers)
 
-    print("La salida es:")
     print(trinario_tree)
 
 
