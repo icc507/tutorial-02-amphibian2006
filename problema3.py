@@ -9,5 +9,36 @@
 #         20 30 90 90 8 5 90
 #La salida debe ser
 #         [20, [8, [5, [], [], []], [], []], [], [30, [], [], [90, [], [90, [], [90, [], [], []], []], []]]]
-t = input()
-print(t)
+def insert_into_trinario_tree(root, value):
+    if not root:
+        return [value, [], [], []]
+
+    if value < root[0]:
+        root[1] = insert_into_trinario_tree(root[1], value)
+    elif value == root[0]:
+        root[2] = insert_into_trinario_tree(root[2], value)
+    else:
+        root[3] = insert_into_trinario_tree(root[3], value)
+
+    return root
+
+
+def construct_trinario_tree(numbers):
+    root = None
+    for num in numbers:
+        root = insert_into_trinario_tree(root, num)
+    return root
+
+
+def main():
+    input_numbers = input("Ingrese varios números separados por espacios: ")
+    numbers = list(map(int, input_numbers.split()))
+
+    trinario_tree = construct_trinario_tree(numbers)
+
+    print("La salida es:")
+    print(trinario_tree)
+
+
+if __name__ == "__main__":
+    main()
