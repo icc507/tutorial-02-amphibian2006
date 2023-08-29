@@ -9,6 +9,16 @@
 #		  mundo 44
 #La salida debe ser
 #         ('mundo', 44, 20, 90, 'hola', 'mundo', 44)
-t = input()
-m = input()
-print(m)
+t = input().split()
+m = input().split()
+
+#hacemos el orden que nos piden en el problema
+s = m+t+m
+
+# le aplicamos un "formato" a los digitos
+for i in range(len(s)):
+    if s[i].isdigit():
+        s[i] = int(s[i])
+
+#imprimimos la tupla
+print(tuple(s))
