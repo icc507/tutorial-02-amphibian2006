@@ -31,7 +31,7 @@ def construct_trinario_tree(numbers):
 
 
 def main():
-    input_numbers = input("Ingrese varios números separados por espacios: ")
+    input_numbers = input()
     numbers = list(map(int, input_numbers.split()))
 
     trinario_tree = construct_trinario_tree(numbers)
